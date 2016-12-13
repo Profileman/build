@@ -83,6 +83,10 @@ DISABLE_POLLY_O3 := \
 	net_test_device \
 	net_test_osi
 
+ifneq ($(filter marlin,$(TARGET_DEVICE)),)
+DISABLE_POLLY_O3 += \
+	libGLES_android
+endif
 # Disable modules that dont work with Polly. Split up by arch.
 DISABLE_POLLY_arm :=  \
 	libavcdec \
